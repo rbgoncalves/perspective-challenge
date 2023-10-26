@@ -2,12 +2,13 @@ import React from 'react';
 
 type ButtonProps = {
     onClick: () => void;
-    disabled: boolean;
+    disabled?: boolean;
     children: React.ReactNode;
     className?: string;
+    style?: React.CSSProperties 
   };
 
-export const Button = ({ onClick, disabled, children, className }: ButtonProps) => {
+export const Button = ({ onClick, disabled = false, children, className, style }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
@@ -17,6 +18,7 @@ export const Button = ({ onClick, disabled, children, className }: ButtonProps) 
           ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
           : 'bg-blue-500 hover:bg-blue-700 text-white font-semibold'
       } ${className}`}
+      style={style}
     >
       {children}
     </button>

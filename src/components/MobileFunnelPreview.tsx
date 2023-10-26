@@ -1,6 +1,10 @@
 import { FunnelData } from "@/types";
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { TextBlockPresenter } from "./blocks/TextBlock";
+import { ButtonBlockPresenter } from "./blocks/ButtonBlock";
+import { ImageBlockPresenter } from "./blocks/ImageBlock";
+import { ListBlockPresenter } from "./blocks/ListBlock";
 
 type MobileFunnelPreviewProps = {
   funnelData: FunnelData;
@@ -28,43 +32,20 @@ export const MobileFunnelPreview = ({
     <div>
       <h1>{funnelData.name}</h1>
       <div
-        className="w-[375px] h-[600px] overflow-y-auto shadow-lg p-4"
+        className="w-[375px] h-[600px] overflow-y-auto shadow-lg p-4 my-6"
         style={{ backgroundColor: funnelData.bgColor }}
       >
         {currentPage.blocks.map((block) => (
           <div key={block.id}>
-            {block.type === "text" && (
-              <div style={{ color: block.color, textAlign: block.align }}>
-                {block.text}
-              </div>
-            )}
-            {block.type === "image" && <img src={block.src} alt="Image" />}
-            {block.type === "list" && (
-              <ul>
-                {block.items?.map((item) => (
-                  <li key={item.title}>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                    <img src={item.src} alt="List Item" />
-                  </li>
-                ))}
-              </ul>
-            )}
-            {block.type === "button" && (
-              <button
-                style={{ color: block.color, backgroundColor: block.bgColor }}
-              >
-                {block.text}
-              </button>
-            )}
+            {block.type === "text" && <TextBlockPresenter block={block} />}
+            {block.type === "image" && <ImageBlockPresenter block={block} />}
+            {block.type === "list" && <ListBlockPresenter block={block} />}
+            {block.type === "button" && <ButtonBlockPresenter block={block} />}
           </div>
         ))}
       </div>
-      <div className="flex justify-between mt-6">
-        <Button
-          onClick={handlePrevPage}
-          disabled={currentPageIndex === 0}
-        >
+      <div className="flex justify-between">
+        <Button onClick={handlePrevPage} disabled={currentPageIndex === 0}>
           Previous Page
         </Button>
         <Button
