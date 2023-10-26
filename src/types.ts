@@ -1,3 +1,5 @@
+import { Property } from "csstype";
+
 export type Page = {
   id: string;
   blocks: Block[];
@@ -19,15 +21,15 @@ type BaseBlock = {
 export type TextBlock = BaseBlock & {
   type: "text";
   text: string;
-  color: string;
-  align: string;
+  color: Property.Color;
+  align: Property.TextAlign;
 };
 
 export type ButtonBlock = BaseBlock & {
   type: "button";
   text: string;
-  color: string;
-  bgColor: string;
+  color: Property.Color;
+  bgColor: Property.BackgroundColor;
 };
 
 export type ImageBlock = BaseBlock & {

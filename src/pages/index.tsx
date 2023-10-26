@@ -1,4 +1,5 @@
 import { FileUploader } from "@/components/FileUploader";
+import { MobileFunnelPreview } from "@/components/MobileFunnelPreview";
 import { FunnelData } from "@/types";
 import Head from "next/head";
 import { useState } from "react";
@@ -19,7 +20,7 @@ export default function FunnelPreviewPage() {
       </Head>
       <h1 className="text-2xl font-semibold">Funnel Preview</h1>
       <FileUploader onFileUpload={handleFileUpload} />
-      {funnelData && JSON.stringify(funnelData)}
+      {funnelData && <MobileFunnelPreview funnelData={funnelData} />}
     </div>
   );
 }
