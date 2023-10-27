@@ -15,7 +15,7 @@ export const Button = ({ onClick, disabled = false, children, className, style }
       disabled={disabled}
       className={`py-2 px-4 rounded-lg focus:outline-none ${
         disabled
-          ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
+          ? 'bg-gray-300 text-gray-400 cursor-not-allowed'
           : 'bg-blue-500 hover:bg-blue-700 text-white font-semibold'
       } ${className}`}
       style={style}

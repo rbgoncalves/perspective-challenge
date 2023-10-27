@@ -45,7 +45,14 @@ export type ListBlock = BaseBlock & {
 type ListItem = {
   title: string;
   description: string;
-  src: string;
+  src?: string;
 };
+
+export type BlockTypeMap = {
+    text: TextBlock;
+    image: ImageBlock;
+    list: ListBlock;
+    button: ButtonBlock;
+  };
 
 export type Block = TextBlock | ImageBlock | ButtonBlock | ListBlock;
