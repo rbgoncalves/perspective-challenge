@@ -20,13 +20,13 @@ Before you begin, make sure you have Node.js and npm (Node Package Manager) inst
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-nextjs-app.git
+   git clone https://github.com/rbgoncalves/perspective-challenge.git
    ```
 
 2. Install dependencies:
 
    ```bash
-   cd your-nextjs-app
+   cd perspective-challenge
    npm install
    ```
 
